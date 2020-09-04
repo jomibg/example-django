@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h4>
+<p class="text-center text-danger my-auto">Account activation failed!</p>
+<p class="text-center text-danger my-auto">{{ activation_error.message }}</p>
+</h4>
+{% endblock %}

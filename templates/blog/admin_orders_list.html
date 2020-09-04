@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="containter-fluid">
+<div class="row">
+<div class="mx-auto my-1">
+<h2 class="text-center">Orders from customers:</h2>
+{% for order in orders %}
+<div class="card my-2">
+  <div class="card-header">
+  	<h5><a href="{% url 'blog:order_detail' pk=order.pk %}">{{ order.customer_activity.user }}</a></h5>
+  </div>
+  <div class="card-body"><p>{{ order.created_date }}</p>
+  </div>
+</div>
+{% endfor %}
+</div>
+</div>
+</div>
+{% endblock %}

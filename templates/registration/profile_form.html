@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="containter-fluid">
+<div class="row">
+<div class="mx-auto my-2 bg-light p-3 border ">
+
+<form method="POST">
+    {% csrf_token %}
+    <h3><p class="text-center text-secondary font-weight-bold">Change profile informations:</p></h3>
+    <h5>
+    {% for field in form %}
+    <p class="text-secondary text-center">{{ field.label_tag }}</p>
+    <p class="text-center">{{ field }}
+    </p><br>
+    {% for error in field.errors %}
+    <p style="font-size: smaller" class="text-danger text-center">{{ error }}</p>
+    {% endfor %}
+    {% endfor %}
+    </h5>
+    <p class="text-center"><button type="submit" class="btn btn-info btn-lg">Save changes</button></p>
+</form>
+<p class="text-center">
+    <a class="btn btn-outline-info" href="{% url 'accounts:password_change' %}">Change password</a>
+</p>
+</div>
+</div>
+</div>
+{% endblock %}

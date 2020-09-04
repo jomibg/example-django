@@ -1,0 +1,1 @@
+Here is your user-activation email {{ user.username }}

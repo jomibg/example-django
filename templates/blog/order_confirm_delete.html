@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <form action="" method="post">{% csrf_token %}
+    <h3><p class="text-danger text-center">Are you sure you want to delete this order?</p></h3>
+    <h5><p class="text-center text-secondary">If you proceed site admin will be informed,and this order will be considered as canceled.</p>
+    </h5>
+    <p class="text-center"><input class='btn btn-danger btn-lg' type="submit" value="Confirm" /></p>
+  </form>
+{% endblock %}

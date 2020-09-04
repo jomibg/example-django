@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block index %}
+<div class="containter-fluid bg-light">
+<div class="row">
+	<div class="col-xl-7">
+    <br>
+    <br>
+    <br>
+	<div class="d-flex bg-light rounded border border-dark">
+	<div class="p-2">
+	<i style='font-size:100px;' class="fas fa-comment-dollar"></i>
+    </div>
+	<div class="pt-5 ml-5">
+	<h3>Cheap...</h3>
+    </div>
+    </div>
+    <br>
+    <br>
+    <div class="d-flex bg-light rounded
+    border border-dark">
+    <div class="p-2">
+    <i style='font-size:100px;' class="fas fa-clock"></i>	
+    </div>
+    <div class="pt-5 ml-5">
+    <h3>Fast...</h3>	
+    </div>	
+    </div>
+    <br>
+    <br>
+    <div class="d-flex bg-light rounded
+    border border-dark">
+    <div class="p-2">
+    <i style='font-size:100px;' class="fas fa-laugh-beam"></i>
+    </div>
+    <div class="pt-5 ml-5">
+    <h3>Eficient...</h3>	
+    </div>    
+    </div>
+	
+
+	</div>
+
+	<div class="col-xl-5">
+
+		<div class="card mx-auto mt-5" style="width:400px">
+			<img class="card-img-top" src="{% static 'images/avatar.png' %}" alt="Card image" style="width:100%">
+			<div class="card-body">
+            <h4 class="card-title">John Doe</h4>
+            <p class="card-text">Some example text some example text. John Doe is an architect and engineer.</p>
+            <a href="#" class="btn btn-primary">Freelencer</a>
+            </div>
+		</div>
+		
+	</div>
+</div>
+</div>
+{% endblock %}

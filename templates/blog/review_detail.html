@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="containter-fluid">
+<div class="row">
+<div class="mx-auto py-3 bg-light rounded-lg" style="width:750px;">
+
+<h3><p class="text-center text-info border-bottom border-info">{{ review.user }}</p></h3>
+
+<h4>
+<p class="text-center" style="width: 500;"><mark>
+{{ review.content|linebreaksbr }}</mark></p>
+
+{% if review.mark == "five" %}
+<p class="text-warning text-center">
+	<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+</p>
+{% elif review.mark == "four" %}
+<p class="text-warning text-center">
+	<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+</p>
+{% elif review.mark == "three" %}
+<p class="text-warning text-center">
+	<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+</p>
+{% elif review.mark == "two" %}
+<p class="text-warning text-center">
+	<i class="fas fa-star"></i><i class="fas fa-star"></i>
+</p>
+{% elif review.mark == "one" %}
+<p class="text-warning text-center">
+	<i class="fas fa-star"></i>
+</p>
+{% endif %}
+{% if review.user == user %}
+<a href="{% url 'blog:review_update' review.pk %}"><p class="text-center text-info">
+Update your review!
+</p></a>
+<p class="text-center"><a class="text-danger" href="{% url 'blog:review_delete' review.pk %}">
+Delete your review!
+</a></p>
+{% endif %}
+</h4>
+
+</div>
+</div>
+</div>
+{% endblock %}

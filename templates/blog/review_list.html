@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="containter-fluid">
+
+<div class="row">
+<div class="mx-auto my-1">
+<h4>
+<p><a href="{% url 'blog:review_create' %}">
+<i style='font-size:25px;color: #007bff' class="fas fa-marker"></i> 
+Write a review
+<i style='font-size:25px;color: #007bff' class="fas fa-marker"></i></a></p>
+</h4>
+</div>
+</div>
+
+{% for review in reviews %}
+<div class="row my-3">
+<div class="mx-auto">
+<ul class="list-group" style="width: 200px;">
+
+<a class="list-group-item list-group-item-action list-group-item-secondary " href="{% url 'blog:review_detail' review.pk %}">{{ review.user }}</a>
+
+<li class="list-group-item"> {{ review.content|slice:":20"}}</li>
+
+<li class="list-group-item">
+{% if review.mark == "five" %}
+<p class="text-warning">
+	<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+</p>
+{% elif review.mark == "four" %}
+<p class="text-warning">
+	<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+</p>
+{% elif review.mark == "three" %}
+<p class="text-warning">
+	<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+</p>
+{% elif review.mark == "two" %}
+<p class="text-warning">
+	<i class="fas fa-star"></i><i class="fas fa-star"></i>
+</p>
+{% elif review.mark == "one" %}
+<p class="text-warning">
+	<i class="fas fa-star"></i>
+</p>
+{% endif %}
+</li>
+</ul>
+</div>
+</div>
+{% endfor %}
+
+</div>
+{% endblock %}

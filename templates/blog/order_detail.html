@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="containter-fluid">
+<div class="row">
+<div class="mx-auto py-3 bg-light rounded" style="width:750px;">
+
+
+<h1><p class="text-center text-secondary border-bottom border-secondary">{{ order.subject }}</p></h1>
+{% if user.is_staff or user.is_superuser %}
+<h5><p class="text-right text-secondary"><u>from: {{ order.customer_activity }}</u></p></h5>
+{% endif %}
+
+<h4><p class="bg-white text-center border border-secondary p-1" style="word-wrap: break-word;">{{ order.description|linebreaksbr }}</p>
+</h4>
+<h5>
+{% if order.additional_files %}
+<p class="text-center">Additional files:</p>
+<p class="text-center"><a href="{{ order.additional_files.url }}" class="text-secondary">Download</a></p>
+{% endif %}
+
+<p class="text-right text-secondary">{{ order.created_date }}</p>
+
+<p class="text-right">
+<a class="text-danger" href="{% url 'blog:order_delete' pk=order.pk %}">
+Delete this order?
+</a>
+</p>
+
+</h5>
+
+</div>
+</div>
+</div>
+{% endblock %}

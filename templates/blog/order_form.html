@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+<div class="containter-fluid">
+<div class="row">
+<div  class="card mx-auto my-3 border-dark bg-light text-dark" style="width: 900px">
+<div class="card-header bg-primary text-white">
+	<h2 class="card-title text-center my-auto">Write an order</h2>
+</div>
+
+<div class="card-body">
+<p class="card-text">
+    <form method="POST" class="order-form" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+    <p>
+    <h4 class="text-primary text-center my-2">{{ field.label_tag }}</h4>
+    </p>
+    <p class="text-center">
+    {{ field }}
+    </p>
+    {% for error in field.errors %}
+          <p style="font-size: smaller" class="text-danger text-center">{{ error }}</p>
+          <br>
+    {% endfor %}
+    {% endfor %}
+    <p class="text-center"><button type="submit" class="btn btn-primary btn-lg">Send the order</button>
+    </form>
+</p>
+</div>
+
+</div>
+</div>
+</div>
+{% endblock %} 
